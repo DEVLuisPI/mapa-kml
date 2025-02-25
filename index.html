@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mapa KML com Leaflet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
+    <style>
+      #map { height: 500px; }
+    </style>
+  </head>
+  <body>
+    <h3>Mapa KML com OpenStreetMap e Leaflet</h3>
+    <div id="map"></div>
+    <script>
+      // Cria o mapa
+      var map = L.map('map').setView([-5.1058, -42.2689], 15); // Coordenadas iniciais do mapa (ajuste conforme necessário)
+
+      // Adiciona o OpenStreetMap como camada do mapa
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+      // Carrega o arquivo KML e adiciona no mapa
+      var kmlLayer = omnivore.kml('https://raw.githubusercontent.com/DEVLuisPI/mapa-kml/main/area_atualizada.kml').addTo(map);
+    </script>
+  </body>
+</html>
